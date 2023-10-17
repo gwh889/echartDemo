@@ -64,6 +64,7 @@ export default {
               color: "#fff"
             }
           },
+          inverse: true, //可实现x轴坐标的方向
           type: "category",
           data: this.singleBarChart.xData
         },
@@ -98,7 +99,7 @@ export default {
                 { offset: 1, color: this.singleBarChart.barColorEnd }
               ])
             }
-          }
+          },
         ]
       };
       if (this.singleBarChart.tilt === "1") {

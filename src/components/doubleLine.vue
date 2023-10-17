@@ -48,6 +48,7 @@ export default {
         tooltip: {
           trigger: "axis"
         },
+   
         // 添加图例，若不显示，是series要添加name属性
         legend: {
           show: true,
@@ -105,7 +106,8 @@ export default {
             type: "line",
             itemStyle: {
               color: this.doubleLineChart.oneLineColor
-            }
+            },
+            smooth: true //平滑的折线
           },
           {
             name: this.doubleLineChart.legendTwo,

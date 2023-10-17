@@ -34,6 +34,12 @@
     <div class="ceshiBar">
       <SingleBarRow :singleBarRowChart="singleBarRowChart"></SingleBarRow>
     </div>
+    <div class="ceshiBar">
+      <MoreLineRow></MoreLineRow>
+    </div>
+    <div class="ceshiBar">
+      <Stacking></Stacking>
+    </div>
   </div>
 </template>
 <script>
@@ -45,6 +51,8 @@ import DoubleLine from "../components/doubleLine";
 import DoubleLineTwoy from "../components/doubleLineTwoy";
 import RingChart from "../components/ringChart";
 import SingleBarRow from "../components/singleBarRow";
+import MoreLineRow from "../components/moreLineRow";
+import Stacking from "../components/stacking";
 
 export default {
   components: {
@@ -55,7 +63,9 @@ export default {
     DoubleLine,
     DoubleLineTwoy,
     RingChart,
-    SingleBarRow
+    SingleBarRow,
+    MoreLineRow,
+    Stacking
   },
   data() {
     return {

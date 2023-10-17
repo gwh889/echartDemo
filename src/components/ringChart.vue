@@ -70,6 +70,9 @@ export default {
             var arr = ["{a|" + name + "}", "{b|" + res + "}"];
             return arr.join("\n");
           },
+          // textStyle: {
+          //   color: "#fft", //设置图例文字和图例颜色相同
+          // },
           // 利用富文本修饰每一个legend的样式
           textStyle: {
             rich: {
@@ -131,6 +134,7 @@ export default {
             type: "pie",
             // 内外圈的大小
             radius: ["40%", "70%"],
+            // 也可设置环形中间文字
             label: {
               show: false,
               position: "center"

@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       resizeTimer: null,
-      myChart: null
+      myChart: null,
     };
   },
   mounted() {
@@ -28,13 +28,13 @@ export default {
       this.getsingleBarRowChart();
     }, 1000);
     const _this = this;
-    window.addEventListener("resize", function() {
+    window.addEventListener("resize", function () {
       if (_this.resizeTimer) {
         clearTimeout(_this.resizeTimer);
       }
       if (_this.myChart) {
         _this.myChart.resize();
-        _this.resizeTimer = setTimeout(function() {}, 100);
+        _this.resizeTimer = setTimeout(function () {}, 100);
       }
     });
   },
@@ -45,68 +45,76 @@ export default {
       this.myChart = myChart;
       const option = {
         tooltip: {
-          trigger: "axis"
+          trigger: "axis",
         },
+        // grid: {
+        //   top: "10px",
+        //   bottom: "50",
+        //   left: "110",
+        //   right: "40px",
+        // },
         xAxis: {
           // 刻度值颜色
           axisLabel: {
             textStyle: {
-              color: "rgba(255, 255, 255, 0.65)"
-            }
+              color: "rgba(255, 255, 255, 0.65)",
+            },
           },
-           // x轴对应刻度背景先颜色
+          // x轴对应刻度背景先颜色
           splitLine: {
             lineStyle: {
               type: "dashed",
-              color: "#878793"
-            }
+              color: "#878793",
+            },
           },
-          type: "value"
+          type: "value",
         },
         yAxis: {
           name: this.singleBarRowChart.yUnit,
           nameTextStyle: {
             // y轴单位的颜色
-            color: "rgba(255, 255, 255, 0.65)"
+            color: "rgba(255, 255, 255, 0.65)",
           },
           // 去掉刻度
           axisTick: {
-            show: false
+            show: false,
           },
           // 修改刻度线颜色
           axisLine: {
             lineStyle: {
-              color: "rgba(255, 255, 255, 0.65)"
-            }
+              color: "rgba(255, 255, 255, 0.65)",
+            },
           },
           // 刻度值颜色
           axisLabel: {
             textStyle: {
-              color: "rgba(255, 255, 255, 0.65)"
-            }
+              color: "rgba(255, 255, 255, 0.65)",
+            },
           },
           type: "category",
-          data: this.singleBarRowChart.xData
+          data: this.singleBarRowChart.xData,
         },
         series: [
           {
             data: this.singleBarRowChart.yData,
             type: "bar",
+            // barWidth: 15,
             itemStyle: {
               color: new this.echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 { offset: 0, color: this.singleBarRowChart.barColorStart },
-                { offset: 1, color: this.singleBarRowChart.barColorEnd }
-              ])
-            }
-          }
-        ]
+                { offset: 1, color: this.singleBarRowChart.barColorEnd },
+              ]),
+              barBorderRadius: 20,
+            },
+          },
+        ],
       };
       if (this.singleBarRowChart.tilt === "1") {
         option.xAxis.axisLabel = { interval: 0, rotate: 30 };
       }
       myChart.setOption(option);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
